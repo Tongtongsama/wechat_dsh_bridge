@@ -1,0 +1,11 @@
+# 运行桥接只需要这三个
+wxauto4>=41.1.7
+openpyxl>=3.1
+Pillow>=10.0
+
+# 说明：
+#   wxauto4  —— 微信 UI 自动化（Windows only）
+#   openpyxl —— 读取 xlsx，用于「表格转长图」
+#   Pillow   —— 渲染表格分页图片、处理表情素材
+#
+# 需要 Python 3.12+，且同目录下必须有 pythonw.exe（GUI 子系统，用来跑常驻进程）。

@@ -1,0 +1,54 @@
+# 运行时产物，不进版本库
+__pycache__/
+*.pyc
+*.tmp
+*.bak
+
+# 日志与流水
+logs/
+wxauto_logs/
+*.log
+state/bridge.pid
+state/transcript.jsonl
+# 生命周期标记：文件在不在本身就是状态，跟踪它只会制造无意义的提交
+state/shutdown_requested
+state/restart_pending
+
+# 测试产物
+state-selftest/
+
+# 机密的备份文件（真正的 key 在 ~/.dsh/wechat-bridge/secret.env，本来就不在这里）
+*.bak-*
+*.corrupt-*
+state/memory.json.legacy-*
+
+# 临时截图
+state/wechat-window.png
+
+# —— 不上传 GitHub 的私有内容 ——
+# 记忆里是家人朋友的真实昵称和备注、表情库里是私人图片。
+# 即使是私有仓库也不该放上去；换机器时手工拷贝这两个目录即可。
+state/
+stickers/**/*.png
+stickers/**/*.jpg
+stickers/**/*.jpeg
+stickers/**/*.gif
+stickers/**/*.webp
+stickers/_incoming/
+stickers/generated/index.json
+stickers/generated/manifest.json
+
+# 家人/朋友的工作区内容（各自产出，不属于桥接代码）
+family-workspace/
+
+# 编辑器
+.vscode/
+.idea/
+
+# 表格渲染出的分页图（可随时重新生成）
+*_pages/
+
+# 本地配置（由 config.example.json 复制而来，含群名等个人信息）
+config.json
+config.json.*
+secret.env

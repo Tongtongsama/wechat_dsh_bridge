@@ -1,0 +1,392 @@
+{
+  "owner": {
+    "conv_id": "user:owner",
+    "name": "我"
+  },
+  "family_root": "./family-workspace",
+  "bot_mention": "@小助手",
+  "timeout_s": 300,
+  "strip_markdown": true,
+  "reply_chunk_chars": 1400,
+  "sticker_enabled": true,
+  "stickers_dir": "stickers",
+  "ack_mode": "smart",
+  "ack_delay_seconds": 6,
+  "slow_ping_seconds": 30,
+  "max_workers": 3,
+  "reset_approvals_on_start": true,
+  "cost_gate_thresholds": [
+    0.6,
+    0.8
+  ],
+  "single_task_alert_tokens": 50000,
+  "usage_notice": "never",
+  "memory_file": "state/memory.json",
+  "proactive": {
+    "enabled": true,
+    "per_hour": 2,
+    "cooldown_seconds": 600,
+    "quiet_start": 23,
+    "quiet_end": 8,
+    "review_model": "deepseek-chat",
+    "groups": {
+      "group:parents": false,
+      "group:friends": true
+    },
+    "min_gap_seconds": 180,
+    "ignored_limit": 3,
+    "cooldown_after_ignored": 7200
+  },
+  "reply_style": "conclusion_first",
+  "secret_literals": [
+    "Kx7#mQ2v!Lp9"
+  ],
+  "wechat": {
+    "expected_account": "小助手"
+  },
+  "permissions": {
+    "base_mode": "workspace-write",
+    "elevated_mode": "danger-full-access"
+  },
+  "conversations": [
+    {
+      "conv_id": "user:owner",
+      "kind": "private",
+      "name": "我（本人）",
+      "wechat_name": "owner",
+      "trigger": "always",
+      "daily_budget_tokens": 2000000,
+      "memory_scope": "owner"
+    },
+    {
+      "conv_id": "group:parents",
+      "kind": "group",
+      "name": "家人群",
+      "wechat_name": "家人群",
+      "trigger": "@bot",
+      "aliases": [
+        "@小助手",
+        "@助手",
+        "@deepseek"
+      ],
+      "daily_budget_tokens": 15000000,
+      "memory_scope": "family"
+    },
+    {
+      "conv_id": "group:friends",
+      "kind": "group",
+      "name": "朋友群",
+      "wechat_name": "朋友群",
+      "style": "chat",
+      "trigger": "@bot",
+      "aliases": [
+        "@小助手",
+        "@助手",
+        "@deepseek"
+      ],
+      "daily_budget_tokens": 8000000,
+      "memory_scope": "friends"
+    }
+  ],
+  "notify_family_on_grant": false,
+  "image_gen": {
+    "enabled": true,
+    "base_url": "https://api.openai.com/v1",
+    "api_key_env": "OPENAI_API_KEY",
+    "model": "chatgpt-image-latest",
+    "size": "1024x1024",
+    "quality": "",
+    "timeout_s": 150,
+    "daily_limit": 20,
+    "groups": [
+      "user:owner",
+      "group:friends"
+    ],
+    "cache_dir": "stickers/generated",
+    "max_px": 768,
+    "reference_images": [
+      "stickers/ref/character.jpg"
+    ],
+    "style_prefix": "high quality anime illustration, soft cel shading, refined linework, subtle gradients, clean plain white background, bust-up composition (head and torso filling the frame), character faithfully matching the reference: silver twin-tail hair, black blazer, white shirt, black tie; her hair clip must stay a question-mark (?) shape exactly like the reference, never redesign it; no text"
+  },
+  "sweep_seconds": 300,
+  "owner_aliases": [
+    "owner",
+    "david",
+    "宽"
+  ],
+  "openai_admin_key_env": "OPENAI_ADMIN_KEY",
+  "nudges": {
+    "enabled": true,
+    "check_interval_minutes": 10,
+    "max_per_day": 3,
+    "late_night": {
+      "enabled": true,
+      "start_hour": 23,
+      "end_hour": 3
+    },
+    "greetings": {
+      "morning": {
+        "enabled": true,
+        "start_hour": 8,
+        "end_hour": 11
+      }
+    }
+  },
+  "balance_watch": {
+    "enabled": true,
+    "check_interval_minutes": 10,
+    "min_increase": 1.0,
+    "balance_guard": {
+      "enabled": true,
+      "deepseek_min_cny": 30,
+      "daily_spike_factor": 3,
+      "min_daily_usd": 0.5
+    }
+  },
+  "presence": {
+    "enabled": true,
+    "targets": [
+      "group:friends",
+      "group:parents"
+    ],
+    "on_start": true,
+    "on_stop": true,
+    "compose": true,
+    "moments": {
+      "enabled": false
+    },
+    "stop_targets": [
+      "group:friends"
+    ]
+  },
+  "backup": {
+    "enabled": true,
+    "dest": "C:\\Users\\YOURNAME\\dsh-bridge-backups",
+    "keep": 10,
+    "daily_after_hour": 20
+  },
+  "push_on_shutdown": true,
+  "github_user": "your-github-name",
+  "github_repo": "wechat_dsh_bridge",
+  "sticker_fallback": {
+    "enabled": true,
+    "min_every": 3,
+    "max_every": 5,
+    "convs": [
+      "group:parents",
+      "group:friends",
+      "user:owner"
+    ]
+  },
+  "sticker_pools": {
+    "ask": [
+      "索要",
+      "乞求"
+    ],
+    "generic": [
+      "开心",
+      "得意",
+      "生气",
+      "无语流汗",
+      "震惊",
+      "卖萌",
+      "坏笑",
+      "叹气",
+      "抱臂撇嘴",
+      "不耐烦翻白眼"
+    ],
+    "exclusive": [
+      "比心",
+      "飞吻"
+    ],
+    "happy": [
+      "开心",
+      "得意",
+      "卖萌",
+      "坏笑",
+      "害羞",
+      "比心",
+      "飞吻"
+    ],
+    "sad": [
+      "叹气",
+      "无语流汗",
+      "生气",
+      "不耐烦翻白眼",
+      "抱臂撇嘴"
+    ],
+    "neutral": [
+      "无语流汗",
+      "叹气",
+      "震惊"
+    ]
+  },
+  "follow": {
+    "enabled": true,
+    "max_messages": 4,
+    "window_minutes": 10,
+    "keywords": [
+      "小助手",
+      "小助手",
+      "deepseek",
+      "小助手",
+      "百二"
+    ],
+    "judge": true,
+    "thresholds": [
+      50,
+      70,
+      85,
+      95
+    ]
+  },
+  "allowed_roots": [
+    "%USERPROFILE%\\Desktop"
+  ],
+  "tattle": {
+    "enabled": true,
+    "conv": "group:friends",
+    "threshold_ratio": 0.8,
+    "max_per_day": 2,
+    "also_private": true
+  },
+  "table": {
+    "max_cols": 6,
+    "max_pages": 12,
+    "columns": [
+      "优先级",
+      "导师",
+      "院校",
+      "当前状态",
+      "下一步行动",
+      "回复"
+    ]
+  },
+  "vision": {
+    "enabled": true,
+    "model": "gpt-4o-mini",
+    "convs": [
+      "user:owner",
+      "group:friends"
+    ],
+    "auto_reply": true,
+    "auto_reply_convs": [
+      "group:friends"
+    ],
+    "daily_limit": 30,
+    "max_px": 768,
+    "window_minutes": 5
+  },
+  "memory_auto": {
+    "enabled": true,
+    "daily_limit": 5,
+    "convs": [
+      "user:owner",
+      "group:parents",
+      "group:friends"
+    ]
+  },
+  "mood": {
+    "enabled": true
+  },
+  "sticker_pick": {
+    "enabled": true,
+    "model": "deepseek-flash"
+  },
+  "look_back": {
+    "enabled": true,
+    "convs": [
+      "group:friends",
+      "group:parents"
+    ],
+    "max_age_minutes": 5
+  },
+  "chat_mode": {
+    "default_casual": true,
+    "serious_triggers": [
+      "详细告诉我",
+      "详细说说",
+      "详细讲",
+      "具体讲讲",
+      "具体说说",
+      "认真地",
+      "认真问",
+      "帮我分析",
+      "帮我查",
+      "帮我写",
+      "给我个方案",
+      "给我个思路",
+      "怎么解决",
+      "教教我",
+      "展开说"
+    ]
+  },
+  "coalesce": {
+    "enabled": true,
+    "wait_seconds": 2.0,
+    "incomplete_extra_seconds": 3.0,
+    "max_wait_seconds": 8.0,
+    "skip_commands": true
+  },
+  "trading": {
+    "enabled": true,
+    "status_file": "%USERPROFILE%\\Documents\\your-trading-project\\reports\\daily_status.json",
+    "heartbeat_file": "%USERPROFILE%\\Documents\\your-trading-project\\reports\\heartbeat.json",
+    "targets": [
+      "user:owner",
+      "group:friends"
+    ],
+    "context_convs": [
+      "user:owner",
+      "group:friends"
+    ],
+    "style": "journal",
+    "journal_model": "deepseek-flash",
+    "sticker": true,
+    "highlights": true,
+    "journal_out": "%USERPROFILE%\\Documents\\your-trading-project\\reports\\dsh_journal.json",
+    "window": "05:00-23:30",
+    "after_minutes": 20
+  },
+  "web_read": {
+    "enabled": true,
+    "convs": [
+      "user:owner",
+      "group:friends"
+    ],
+    "max_links": 2,
+    "max_chars": 3000,
+    "timeout_s": 20
+  },
+  "deliver": {
+    "enabled": true,
+    "targets": {
+      "documents": "%USERPROFILE%\\Documents"
+    }
+  },
+  "sticker_moods": {
+    "cheerful": [
+      "开心",
+      "得意",
+      "卖萌",
+      "坏笑",
+      "害羞",
+      "比心",
+      "飞吻",
+      "祈祷 祝福",
+      "祈祷",
+      "震惊"
+    ],
+    "sad_ok": [
+      "叹气",
+      "无语流汗"
+    ]
+  },
+  "pause": {
+    "convs": [
+      "user:owner"
+    ],
+    "notify_on_resume": true
+  }
+}
