@@ -49,7 +49,8 @@
 - Windows 10/11
 - 微信桌面版 4.x（登录**一个专用小号**，不要用主号）
 - Python 3.12（`pythonw.exe` 必须存在）
-- [DeepSeek Harness](https://github.com/deepseek-ai) 桌面端（提供 `dsh` CLI 和沙箱）
+- DeepSeek Harness 桌面端（提供 `dsh` CLI 和沙箱）。装在默认位置即可，
+  换位置的话设置环境变量 `DSH_EXE` 指向 `DeepSeek Harness.exe`
 
 ### 1. 装依赖
 
